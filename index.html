@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dissenyadors i Programadors de Jocs - PCMAT Primària</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        padding: 0 !important;
+      }
+      .print-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 min-h-screen flex flex-col justify-between p-4 md:p-6">
+
+  <!-- CONTENIDOR PRINCIPAL -->
+  <div class="max-w-5xl mx-auto w-full flex-grow space-y-6">
+
+    <!-- CAPÇALERA AMB TARGETA PETITA DEL JOC -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-6 shadow-md flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold tracking-wide">👾 Dissenyadors i Programadors de Jocs</h1>
+        <p class="text-blue-100 mt-1 text-sm md:text-base">Explora el joc, pensa quins canvis vols fer i completa la fitxa del teu grup!</p>
+      </div>
+
+      <!-- TARGETA DE REFERÈNCIA PETITA (NO RETALLA I PERMET OBRIR EN PESTANYA NOVA) -->
+      <div class="no-print bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/20 flex items-center gap-3 shrink-0">
+        <div class="w-20 h-14 rounded-lg overflow-hidden border border-white/30 bg-slate-800 flex items-center justify-center">
+          <img 
+            src="https://apeleja2.github.io/PD5_daus-i-robots/favicon.ico" 
+            alt="Robot Icon" 
+            class="w-8 h-8 object-contain"
+            onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'white\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z\'/><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M21 12a9 9 0 11-18 0 9 9 0 0118 0z\'/></svg>';"
+          />
+        </div>
+        <div class="text-left">
+          <span class="block text-xs font-bold uppercase tracking-wider text-blue-200">JOCS 1 I 2: CURSA DE ROBOTS</span>
+          <a href="https://apeleja2.github.io/PD5_daus-i-robots/" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-indigo-700 hover:bg-blue-50 py-1 px-2.5 rounded-lg shadow-sm transition mt-1">
+            <span>🎲 Obrir el joc</span> ↗️
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- FITXA DE TREBALL PER A L'ALUMNAT -->
+    <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6 print-card">
+      <h2 class="text-xl font-bold text-blue-600 border-b pb-2 flex items-center gap-2">
+        <span>📋</span> La nostra proposta de treball
+      </h2>
+
+      <!-- Integrants del grup -->
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <label for="members" class="block font-bold text-slate-700 mb-1">✍️ Noms dels membres del grup:</label>
+        <input type="text" id="members" placeholder="Ex: Marc, Laura, Pol..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition">
+      </div>
+
+      <!-- Preguntes de la fitxa -->
+      <div class="space-y-4">
+        <div>
+          <label for="gameSelect" class="block font-bold text-slate-700 mb-1">🎮 Quin joc modificarem?</label>
+          <select id="gameSelect" class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none bg-white transition">
+            <option value="">-- Selecciona una opció --</option>
+            <option value="Joc 1 (1 dau - 6 robots)">Joc 1 (1 dau - 6 robots)</option>
+            <option value="Joc 2 (2 daus - 12 robots)">Joc 2 (2 daus - 12 robots)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="target" class="block font-bold text-slate-700 mb-1">🎯 Quin objectiu volem aconseguir?</label>
+          <textarea id="target" rows="2" placeholder="Ex: Fer que el robot 3 tingui més opcions de guanyar..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"></textarea>
+        </div>
+
+        <div>
+          <label for="ruleChange" class="block font-bold text-slate-700 mb-1">⚙️ Quina regla modificarem?</label>
+          <textarea id="ruleChange" rows="2" placeholder="Ex: Canviarem el valor del dau o els punts per avançar..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition"></textarea>
+        </div>
+
+        <div>
+          <label for="codePart" class="block font-bold text-slate-700 mb-1">💻 Quina part del codi creiem que haurem de canviar?</label>
+          <textarea id="codePart" rows="2" placeholder="Ex: El bloc del número del dau, o la condició del resultat..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"></textarea>
+        </div>
+
+        <div>
+          <label for="prediction" class="block font-bold text-slate-700 mb-1">🔮 Què pensem que passarà?</label>
+          <textarea id="prediction" rows="2" placeholder="Ex: Creiem que la partida serà molt més ràpida..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition"></textarea>
+        </div>
+
+        <div>
+          <label for="fairness" class="block font-bold text-slate-700 mb-1">⚖️ És equitatiu (just)? Per què?</label>
+          <textarea id="fairness" rows="2" placeholder="Ex: Sí, perquè tots dos jugadors continuen tenint la mateixa opció..." class="w-full p-3 border-2 border-slate-300 rounded-lg text-base focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSATGE DE CONFIRMACIÓ VISUAL -->
+    <div id="toast" class="hidden no-print bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition-all duration-300">
+      ✅ Feina desada correctament a l'ordinador!
+    </div>
+
+    <!-- BOTONS D'ACCIÓ SIMPLIFICATS PER A PRIMÀRIA -->
+    <div class="no-print flex flex-col sm:flex-row gap-4 justify-center items-center py-2">
+      <!-- Botó 1: Desar Localment -->
+      <button onclick="saveWork()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-md transition duration-150 flex items-center justify-center gap-2">
+        <span>💾</span> DESAR FEINA
+      </button>
+
+      <!-- Botó 2: Imprimir o Descarregar en PDF -->
+      <button onclick="window.print()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-md transition duration-150 flex items-center justify-center gap-2">
+        <span>🖨️</span> GENERAR FULL EN PDF / IMPRIMIR
+      </button>
+
+      <!-- Botó 3: Reiniciar -->
+      <button onclick="clearWork()" class="w-full sm:w-auto bg-slate-400 hover:bg-slate-500 active:scale-95 text-white font-semibold text-sm py-4 px-4 rounded-xl shadow-sm transition duration-150 flex items-center justify-center gap-1">
+        <span>🧹</span> Començar de nou
+      </button>
+    </div>
+
+  </div>
+
+  <!-- PEU DE PÀGINA AMB SIGNATURA -->
+  <footer class="mt-8 text-center text-xs text-slate-500 border-t border-slate-200 pt-4">
+    Creat per Aurora Pelejà - Mentoria PCMAT
+  </footer>
+
+  <script>
+    // Carregar feina anterior automàticament en obrir la pàgina
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedData = localStorage.getItem('pcmat_primaria_daus');
+      if (savedData) {
+        try {
+          const data = JSON.parse(savedData);
+          document.getElementById('members').value = data.members || '';
+          document.getElementById('gameSelect').value = data.gameSelect || '';
+          document.getElementById('target').value = data.target || '';
+          document.getElementById('ruleChange').value = data.ruleChange || '';
+          document.getElementById('codePart').value = data.codePart || '';
+          document.getElementById('prediction').value = data.prediction || '';
+          document.getElementById('fairness').value = data.fairness || '';
+        } catch (e) {
+          console.error("Error en carregar les dades desades", e);
+        }
+      }
+    });
+
+    // Funció per desar les dades al navegador (LocalStorage)
+    function saveWork() {
+      const data = {
+        members: document.getElementById('members').value,
+        gameSelect: document.getElementById('gameSelect').value,
+        target: document.getElementById('target').value,
+        ruleChange: document.getElementById('ruleChange').value,
+        codePart: document.getElementById('codePart').value,
+        prediction: document.getElementById('prediction').value,
+        fairness: document.getElementById('fairness').value,
+        updatedAt: new Date().toLocaleString()
+      };
+
+      localStorage.setItem('pcmat_primaria_daus', JSON.stringify(data));
+
+      // Mostrar avís visual
+      const toast = document.getElementById('toast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+
+    // Funció per netejar els camps
+    function clearWork() {
+      if (confirm("Segur que vols esborrar els camps per començar un treball nou?")) {
+        localStorage.removeItem('pcmat_primaria_daus');
+        document.getElementById('members').value = '';
+        document.getElementById('gameSelect').value = '';
+        document.getElementById('target').value = '';
+        document.getElementById('ruleChange').value = '';
+        document.getElementById('codePart').value = '';
+        document.getElementById('prediction').value = '';
+        document.getElementById('fairness').value = '';
+      }
+    }
+  </script>
+</body>
+</html>
